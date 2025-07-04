@@ -11,5 +11,8 @@
   },
   "dependencies": {
     "remark": "^15.0.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.5"
   }
 }
