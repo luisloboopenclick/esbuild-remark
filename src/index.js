@@ -13,4 +13,11 @@ async function remark(markdownText) {
 if (typeof(window) !== "undefined") {
     window.remarkProcessor = remarkProcessor
     window.remark = remark
+
+    // dependencies
+    window.rehypeSanitize = rehypeSanitize
+    window.rehypeStringify = rehypeStringify
+    window.remarkParse = remarkParse
+    window.remarkRehype = remarkRehype
+    window.unified = unified
 }
