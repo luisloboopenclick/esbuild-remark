@@ -3,12 +3,16 @@ import rehypeStringify from "rehype-stringify"
 import remarkParse from "remark-parse"
 import remarkRehype from "remark-rehype"
 import { unified } from "unified"
+import remarkFrontmatter from "remark-frontmatter"
+import remarkGfm from "remark-gfm"
 
 const remarkProcessor = unified()
-  .use(remarkParse)
-  .use(remarkRehype)
-  .use(rehypeSanitize)
-  .use(rehypeStringify)
+    .use(remarkParse)
+    .use(remarkFrontmatter)
+    .use(remarkGfm)
+    .use(remarkRehype)
+    .use(rehypeSanitize)
+    .use(rehypeStringify)
 
 async function remark(markdownText) {
   return String(await remarkProcessor.process(markdownText))
