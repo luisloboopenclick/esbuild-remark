@@ -4,11 +4,14 @@
   "description": "",
   "license": "ISC",
   "author": "Luis Lobo",
-  "type": "commonjs",
-  "main": "src/index.js",
+  "type": "module",
+  "main": "./dist/remarkjs.min.js",
+  "exports": {
+    "require": "./dist/remarkjs.min.js",
+    "import": "./dist/remarkjs.min.mjs"
+  },
   "scripts": {
-    "build": "esbuild src/index.js --format=iife --bundle --minify --target=es2020 --outfile=dist/remarkjs.min.js",
-    "build_esm": "esbuild src/index.mjs --format=esm --bundle --minify --target=es2020 --outfile=dist/remarkjs.min.mjs",
+    "build": "node esbuild.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
