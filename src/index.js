@@ -10,7 +10,6 @@ import rehypeStringify from "rehype-stringify"
 function addTargetBlankToAllLinks() {
   return (tree) => {
     visit(tree, "element", (node) => {
-      console.log("node", node)
       if (node.tagName === "a") { // yes, it is in lower case
         node.properties = {
           ...node.properties,
@@ -36,13 +35,20 @@ async function remark(markdownText) {
 }
 
 if (typeof(window) !== "undefined") {
-    window.remarkProcessor = remarkProcessor
     window.remark = remark
 
-    // dependencies
-    window.rehypeSanitize = rehypeSanitize
-    window.rehypeStringify = rehypeStringify
-    window.remarkParse = remarkParse
-    window.remarkRehype = remarkRehype
-    window.unified = unified
+    window.remarkLib = {
+      remarkProcessor,
+      remark,
+
+      // dependencies
+      unified,
+      remarkParse,
+      remarkFrontmatter,
+      remarkGfm,
+      remarkRehype,
+      rehypeSanitize,
+      visit,
+      rehypeStringify
+    }
 }

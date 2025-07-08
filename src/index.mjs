@@ -10,7 +10,6 @@ import rehypeStringify from "rehype-stringify"
 function addTargetBlankToAllLinks() {
   return (tree) => {
     visit(tree, "element", (node) => {
-      console.log("node", node)
       if (node.tagName === "a") { // yes, it is in lower case
         node.properties = {
           ...node.properties,
@@ -40,9 +39,12 @@ export {
   remark,
 
   // dependencies
-  rehypeSanitize,
-  rehypeStringify,
+  unified,
   remarkParse,
+  remarkFrontmatter,
+  remarkGfm,
   remarkRehype,
-  unified
+  rehypeSanitize,
+  visit,
+  rehypeStringify
 }
